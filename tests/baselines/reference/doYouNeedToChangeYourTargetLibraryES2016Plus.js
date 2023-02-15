@@ -22,6 +22,7 @@ const testAsyncGenerator: AsyncGenerator<any> = null as any;
 const testAsyncGeneratorFunction: AsyncGeneratorFunction = null as any;
 const testAsyncIterable: AsyncIterable<any> = null as any;
 const testAsyncIterableIterator: AsyncIterableIterator<any> = null as any;
+const testNumberFormatFormatToParts = new Intl.NumberFormat("en-US").formatToParts();
 
 // es2019
 const testArrayFlat = [].flat();
@@ -44,7 +45,6 @@ const testPromiseAny = Promise.any([]);
 const testStringReplaceAll = "".replaceAll();
 
 // esnext
-const testNumberFormatFormatToParts = new Intl.NumberFormat("en-US").formatToParts();
 
 
 //// [doYouNeedToChangeYourTargetLibraryES2016Plus.js]
@@ -60,7 +60,7 @@ var testIntlFormatToParts = new Intl.DateTimeFormat("en-US").formatToParts();
 var testAtomics = Atomics.add(new Uint8Array(0), 0, 0);
 var testSharedArrayBuffer = new SharedArrayBuffer(5);
 // es2018
-var testPromiseFinally = new Promise(function () { })["finally"]();
+var testPromiseFinally = new Promise(function () { }).finally();
 var testRegExpMatchArrayGroups = "2019-04-30".match(/(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/g).groups;
 var testRegExpExecArrayGroups = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/g.exec("2019-04-30").groups;
 var testRegExpDotAll = /foo/g.dotAll;
@@ -69,6 +69,7 @@ var testAsyncGenerator = null;
 var testAsyncGeneratorFunction = null;
 var testAsyncIterable = null;
 var testAsyncIterableIterator = null;
+var testNumberFormatFormatToParts = new Intl.NumberFormat("en-US").formatToParts();
 // es2019
 var testArrayFlat = [].flat();
 var testArrayFlatMap = [].flatMap();
@@ -87,4 +88,3 @@ var testBigInt = BigInt(123);
 var testPromiseAny = Promise.any([]);
 var testStringReplaceAll = "".replaceAll();
 // esnext
-var testNumberFormatFormatToParts = new Intl.NumberFormat("en-US").formatToParts();

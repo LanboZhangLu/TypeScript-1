@@ -49,29 +49,29 @@ Shape signatures in builder refreshed for::
 /user/username/projects/myproject/logger.ts (used version)
 /user/username/projects/myproject/another.ts (used version)
 
-WatchedFiles::
-/user/username/projects/myproject/tsconfig.json:
-  {"fileName":"/user/username/projects/myproject/tsconfig.json","pollingInterval":250}
-/user/username/projects/myproject/another.ts:
-  {"fileName":"/user/username/projects/myproject/another.ts","pollingInterval":250}
-/user/username/projects/myproject/logger.ts:
-  {"fileName":"/user/username/projects/myproject/logger.ts","pollingInterval":250}
-/a/lib/lib.d.ts:
-  {"fileName":"/a/lib/lib.d.ts","pollingInterval":250}
+PolledWatches::
+/user/username/projects/myproject/node_modules/@types:
+  {"pollingInterval":500}
 
 FsWatches::
+/user/username/projects/myproject/tsconfig.json:
+  {}
+/user/username/projects/myproject/another.ts:
+  {}
+/user/username/projects/myproject/logger.ts:
+  {}
+/a/lib/lib.d.ts:
+  {}
 
 FsWatchesRecursive::
-/user/username/projects/myproject/node_modules/@types:
-  {"directoryName":"/user/username/projects/myproject/node_modules/@types","fallbackPollingInterval":500,"fallbackOptions":{"watchFile":"PriorityPollingInterval"}}
 /user/username/projects/myproject:
-  {"directoryName":"/user/username/projects/myproject","fallbackPollingInterval":500,"fallbackOptions":{"watchFile":"PriorityPollingInterval"}}
+  {}
 
 exitCode:: ExitStatus.undefined
 
 //// [/user/username/projects/myproject/logger.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
 var logger = /** @class */ (function () {
     function logger() {
@@ -83,7 +83,7 @@ exports.logger = logger;
 
 //// [/user/username/projects/myproject/another.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var logger_1 = require("./logger");
 new logger_1.logger();
 
@@ -100,7 +100,7 @@ Output::
 
 [96muser/username/projects/myproject/another.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS1149: [0mFile name '/user/username/projects/myproject/logger.ts' differs from already included file name '/user/username/projects/myproject/Logger.ts' only in casing.
   The file is in the program because:
-    Matched by include pattern '**/*' in '/user/username/projects/myproject/tsconfig.json'
+    Matched by default include pattern '**/*'
     Imported via "./logger" from file '/user/username/projects/myproject/another.ts'
 
 [7m1[0m import { logger } from "./logger"; new logger();
@@ -122,23 +122,23 @@ Semantic diagnostics in builder refreshed for::
 
 No shapes updated in the builder::
 
-WatchedFiles::
-/user/username/projects/myproject/tsconfig.json:
-  {"fileName":"/user/username/projects/myproject/tsconfig.json","pollingInterval":250}
-/user/username/projects/myproject/another.ts:
-  {"fileName":"/user/username/projects/myproject/another.ts","pollingInterval":250}
-/user/username/projects/myproject/logger.ts:
-  {"fileName":"/user/username/projects/myproject/logger.ts","pollingInterval":250}
-/a/lib/lib.d.ts:
-  {"fileName":"/a/lib/lib.d.ts","pollingInterval":250}
+PolledWatches::
+/user/username/projects/myproject/node_modules/@types:
+  {"pollingInterval":500}
 
 FsWatches::
+/user/username/projects/myproject/tsconfig.json:
+  {}
+/user/username/projects/myproject/another.ts:
+  {}
+/user/username/projects/myproject/logger.ts:
+  {}
+/a/lib/lib.d.ts:
+  {}
 
 FsWatchesRecursive::
-/user/username/projects/myproject/node_modules/@types:
-  {"directoryName":"/user/username/projects/myproject/node_modules/@types","fallbackPollingInterval":500,"fallbackOptions":{"watchFile":"PriorityPollingInterval"}}
 /user/username/projects/myproject:
-  {"directoryName":"/user/username/projects/myproject","fallbackPollingInterval":500,"fallbackOptions":{"watchFile":"PriorityPollingInterval"}}
+  {}
 
 exitCode:: ExitStatus.undefined
 

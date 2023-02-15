@@ -122,6 +122,27 @@ class Test11 {
     }
 }
 
+class Tests12 {
+    test1() { // OK
+        type Test = typeof this;
+    }
+
+    test2() { // OK
+        for (;;) {}
+        type Test = typeof this;
+    }
+
+    test3() { // expected no compile errors
+        for (const dummy in []) {}
+        type Test = typeof this;
+    }
+
+    test4() { // expected no compile errors
+        for (const dummy of []) {}
+        type Test = typeof this;
+    }
+}
+
 //// [typeofThis.js]
 "use strict";
 var Test = /** @class */ (function () {
@@ -180,7 +201,7 @@ var Test8 = function () {
 var Test9 = /** @class */ (function () {
     function Test9() {
         this.no = 0;
-        this["this"] = 0;
+        this.this = 0;
     }
     Test9.prototype.f = function () {
         if (this instanceof Test9D1) {
@@ -196,8 +217,8 @@ var Test9 = /** @class */ (function () {
         if (this.no === 1) {
             var no = this.no;
         }
-        if (this["this"] === 1) {
-            var no = this["this"];
+        if (this.this === 1) {
+            var no = this.this;
         }
     };
     return Test9;
@@ -235,9 +256,27 @@ var Test11 = /** @class */ (function () {
     Test11.prototype.foo = function () {
         var o = this;
         var bar = {};
-        if (o["this"] && o["this"].x) {
-            var y = o["this"].x; // should narrow to string
+        if (o.this && o.this.x) {
+            var y = o.this.x; // should narrow to string
         }
     };
     return Test11;
+}());
+var Tests12 = /** @class */ (function () {
+    function Tests12() {
+    }
+    Tests12.prototype.test1 = function () {
+    };
+    Tests12.prototype.test2 = function () {
+        for (;;) { }
+    };
+    Tests12.prototype.test3 = function () {
+        for (var dummy in []) { }
+    };
+    Tests12.prototype.test4 = function () {
+        for (var _i = 0, _a = []; _i < _a.length; _i++) {
+            var dummy = _a[_i];
+        }
+    };
+    return Tests12;
 }());
